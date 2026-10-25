@@ -1,5 +1,32 @@
 # SideNote
 
+[简体中文](README.zh-CN.md) | English
+
+## Personal fork
+
+This is [huaqian0226's personal fork](https://github.com/huaqian0226/side-note) of
+[mofukuru/side-note](https://github.com/mofukuru/side-note), based on upstream commit
+`23d0571`. The upstream author and MIT license are preserved.
+
+The first personal build, `1.3.0-hq.1`, fixes startup when an already open note contains a rendered
+table: highlight refresh now waits for the comment manager. Regression tests cover empty and
+existing comment data. It does not add a selection toolbar or change the annotation format.
+
+Install through **BRAT**: open BRAT settings, add `huaqian0226/side-note`, choose the latest release,
+and install/enable. The fork keeps the original `side-note` ID and uses the same comment data, so
+back up the existing plugin folder first. Use BRAT to update this fork rather than replacing it
+with the original community-directory build. [Releases](https://github.com/huaqian0226/side-note/releases).
+
+`main` mirrors upstream; personal integration is on `my-features`. Fixes intended for upstream stay
+in separate commits and can be submitted from a clean branch without personal release metadata.
+
+Build and verify: `npm ci`, `npm test`, `npx eslint src --ext .ts`, `npm run build`,
+`node --check main.js`. A Node lifecycle harness checks startup ordering; real-vault verification
+is still required for rendering and interaction.
+
+The remaining sections describe the original plugin.
+
+
 SideNote is a plugin for [Obsidian](https://obsidian.md) that allows you to add comments to your notes. These comments are displayed in a dedicated side pane, making it easy to review and navigate annotations without cluttering the main text. Comments are highlighted directly in the editor for quick visual reference.
 
 ## Features
